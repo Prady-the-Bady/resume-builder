@@ -16,19 +16,27 @@ const defaultData = {
 
 export default function App() {
   const [data, setData] = useState(defaultData)
-
   const update = (partial) => setData(prev => ({ ...prev, ...partial }))
-
+  
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Resume Builder Prototype</h1>
+        <div className="gradient-title-bar">
+          <h1 className="gradient-title">
+            ✨ Resume Builder Prototype 🚀
+          </h1>
+          <p className="header-subtitle">Build stunning resumes with modern design</p>
+        </div>
       </header>
+      
       <div className="app-grid">
         <Editor data={data} onChange={setData} />
         <Preview data={data} onChange={update} />
       </div>
-      <footer className="app-footer">Templates and assets should be free & open-source (use OSS fonts and icon sets in production).</footer>
+      
+      <footer className="app-footer">
+        Templates and assets should be free & open-source (use OSS fonts and icon sets in production).
+      </footer>
     </div>
   )
 }
