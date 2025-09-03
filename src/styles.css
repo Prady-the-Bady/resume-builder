@@ -1,46 +1,436 @@
-:root{
-  --bg: #f7f7fb;
-  --muted: #6b7280;
-  --accent: #0ea5a4;
-  --text: #0f172a;
+/* Enhanced styles.css with modern visual improvements */
+
+/* Import Google Fonts - Inter for modern typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Updated colorful accent palette */
+  --primary: #6366f1;
+  --secondary: #ec4899;
+  --accent: #10b981;
+  --warning: #f59e0b;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --border: #e5e7eb;
+  --border-focus: #6366f1;
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
-*{box-sizing:border-box;font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
-body{margin:0;background:var(--bg);color:var(--text)}
-.app{max-width:1100px;margin:18px auto;padding:12px}
-.app-header{display:flex;align-items:center;gap:12px}
-.app-grid{display:grid;grid-template-columns:360px 1fr;gap:16px;margin-top:12px}
-.editor{background:#fff;padding:12px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
-.editor label{display:block;margin:8px 0}
-.editor input,.editor select,.editor textarea{width:100%;padding:8px;border:1px solid #e5e7eb;border-radius:6px}
-.editor textarea{min-height:60px}
-.editor .exp-row{border:1px dashed #e6eef0;padding:8px;margin-bottom:8px}
-.editor-actions{display:flex;gap:8px;align-items:center;margin-top:8px}
-.hint{font-size:12px;color:var(--muted)}
-.preview{background:#fff;padding:12px;border-radius:8px;min-height:600px}
-.preview #preview{background:#fff;padding:20px}
 
-/* Modern template */
-.resume.modern{padding:18px}
-.modern-header{display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--accent);padding-bottom:12px;margin-bottom:12px}
-.modern h1{margin:0;font-size:28px}
-.modern h2{margin:0;font-size:16px;color:var(--muted)}
-.summary{margin:12px 0;color:#374151}
-.exp{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid #f1f5f9}
-.exp-left{width:180px;color:var(--muted)}
-.exp-right .role{font-weight:600}
-.skills{margin-top:8px;color:#0f172a}
+/* Global styles with Inter font */
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
 
-/* Classic template */
-.resume.classic{font-family:Georgia, 'Times New Roman', serif;color:#111}
-.resume.classic header h1{margin:0;font-size:26px}
-.resume.classic .title{color:var(--muted)}
-.classic-exp{margin:8px 0}
-.skills-list{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none}
-.skills-list li{background:#eef2ff;padding:6px 10px;border-radius:6px}
+/* Colorful gradient background for body */
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: var(--text);
+  font-weight: 400;
+}
+
+/* Card-entry fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Enhanced modern header styles */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--bg-primary);
+  padding: 24px 32px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.app-header h1 {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 24px;
+  margin-top: 0;
+}
+
+/* Enhanced editor card with fancy styling */
+.editor {
+  background: var(--bg-primary);
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+  position: relative;
+  overflow: hidden;
+}
+
+.editor::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+}
+
+.editor label {
+  display: block;
+  margin: 16px 0 8px 0;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Vibrant and modern input styles */
+.editor input,
+.editor select,
+.editor textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  background: var(--bg-secondary);
+  color: var(--text);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.editor input:focus,
+.editor select:focus,
+.editor textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  background: var(--bg-primary);
+  transform: translateY(-1px);
+}
+
+.editor input:hover,
+.editor select:hover,
+.editor textarea:hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.editor textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.editor .exp-row {
+  border: 2px dashed var(--accent);
+  padding: 20px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  background: rgba(16, 185, 129, 0.05);
+  transition: all 0.3s ease;
+}
+
+.editor .exp-row:hover {
+  background: rgba(16, 185, 129, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Modern button styles */
+.editor-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Primary button style */
+button:not(.secondary) {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+button:not(.secondary):hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+button:not(.secondary):active {
+  transform: translateY(0);
+}
+
+/* Secondary button style */
+button.secondary {
+  background: var(--bg-primary);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+button.secondary:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Enhanced preview card */
+.preview {
+  background: var(--bg-primary);
+  padding: 32px;
+  border-radius: 20px;
+  min-height: 700px;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+  position: relative;
+  overflow: hidden;
+}
+
+.preview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--warning), var(--secondary));
+}
+
+.preview h2 {
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  font-size: 1.5rem;
+}
+
+.preview #preview {
+  background: var(--bg-primary);
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+
+/* Modern template enhancements */
+.resume.modern {
+  padding: 24px;
+}
+
+.modern-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid;
+  border-image: linear-gradient(90deg, var(--primary), var(--accent)) 1;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.modern h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modern h2 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.summary {
+  margin: 16px 0;
+  color: var(--text);
+  font-weight: 500;
+  line-height: 1.6;
+  padding: 16px;
+  background: rgba(99, 102, 241, 0.05);
+  border-radius: 10px;
+  border-left: 4px solid var(--primary);
+}
+
+.exp {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 2px solid rgba(99, 102, 241, 0.1);
+  transition: all 0.3s ease;
+}
+
+.exp:hover {
+  padding-left: 8px;
+  background: rgba(99, 102, 241, 0.02);
+  border-radius: 8px;
+}
+
+.exp-left {
+  width: 200px;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.exp-right .role {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 16px;
+}
+
+.skills {
+  margin-top: 12px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Classic template enhancements */
+.resume.classic {
+  font-family: 'Inter', Georgia, 'Times New Roman', serif;
+  color: var(--text);
+}
+
+.resume.classic header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.resume.classic .title {
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.classic-exp {
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(16, 185, 129, 0.05);
+  border-left: 3px solid var(--accent);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+  margin-top: 16px;
+}
+
+.skills-list li {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.skills-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
 
 /* Print styles */
-@media print{
-  body{background:white}
-  .app-grid, .editor, .app-header, .app-footer, .preview h2 { display:none }
-  #preview{box-shadow:none;padding:0}
+@media print {
+  body {
+    background: white;
+  }
+  .app-grid, .editor, .app-header, .app-footer, .preview h2 {
+    display: none;
+  }
+  #preview {
+    box-shadow: none;
+    padding: 0;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .app {
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .app-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .app-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .editor, .preview {
+    padding: 20px;
+  }
 }
